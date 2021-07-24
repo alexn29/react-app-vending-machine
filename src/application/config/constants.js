@@ -1,0 +1,1 @@
+export const API = 'https://vending-machine-test.vercel.app/api/products';
