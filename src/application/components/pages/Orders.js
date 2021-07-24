@@ -1,9 +1,10 @@
 import React from 'react'
+import OrderList from '../orders/OrderList'
 
 const Orders = () => {
     return (
         <div>
-            <h1>Orders</h1>
+            <OrderList />
         </div>
     )
 }
