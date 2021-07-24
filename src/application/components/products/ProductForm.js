@@ -22,7 +22,7 @@ const ProductForm = ({ product }) => {
                 quantity
             }
             dispatch(createOrder(data));
-            toast.info('Order created successfully.');
+            toast.info(`Created order with: ${data.name} x ${data.quantity}`);
         }
         else {
             toast.error(`Please, select at least one ${product.name}`);
