@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { Container, Badge, Image } from 'react-bootstrap';
 import DataTable from 'react-data-table-component';
@@ -11,6 +12,8 @@ const DataTableContainer = styled.div`
 `;
 
 const OrderList = () => {
+
+    const { products } = useSelector(state => state.order);
 
     const RowImage = ({ row }) => (
 		<div className="p-2">
@@ -32,17 +35,6 @@ const OrderList = () => {
         }
         return null;
     }
-
-    const products = [
-        {
-            id: "70021987-0535-462c-87e4-f6f26662447f",
-            name: "Hamburger",
-            preparation_time: 85,
-            thumbnail: "https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/pass/the-ultimate-hamburger.jpg",
-            quantity: 10,
-            status: 'Pending'
-        }
-    ];
 
     const columns = [
 		{
