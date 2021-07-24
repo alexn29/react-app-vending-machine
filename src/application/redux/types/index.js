@@ -1,0 +1,1 @@
+export const ADD_ORDER = '@order/add_order';
