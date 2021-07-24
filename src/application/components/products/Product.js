@@ -2,6 +2,7 @@ import React from 'react'
 import { Col, Card } from 'react-bootstrap';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import { CardWithShadow, CardImageContainer, CardImage  } from './Product.styles';
+import ProductForm from './ProductForm';
 
 const Product = ({ product }) => {
 
@@ -23,6 +24,7 @@ const Product = ({ product }) => {
                             <small>Preparation</small><br />
                             <span>{ product.preparation_time }</span>
                         </div>
+                        <ProductForm product={product} />
                     </div>
                 </Card.Body>
             </CardWithShadow>
