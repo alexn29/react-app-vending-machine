@@ -12,6 +12,11 @@ const DataTableContainer = styled.div`
     box-shadow: 0 0.2rem .2rem rgb(63 120 225 / 25%);
 `;
 
+const RadiusButton = styled(Button)`
+    border-radius: 1.5rem;
+    min-width: 125px;
+`;
+
 const OrderList = () => {
 
     const { products } = useSelector(state => state.order);
@@ -94,13 +99,13 @@ const OrderList = () => {
                 <h2 className="my-5">Order list</h2>
                 
                 { products.length > 0 && 
-                    <Button
+                    <RadiusButton
                         variant="danger"
                         size="sm"
                         className="align-self-center"
                         onClick={handleDeleteOrders}>
                         <small>DELETE ORDERS</small>
-                    </Button>
+                    </RadiusButton>
                 }
 
             </div>
