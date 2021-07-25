@@ -1,13 +1,18 @@
 import React from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import styled from 'styled-components';
+
+const NavBarContainer = styled(Navbar)`
+    background-color: var(--indigo);
+`;
 
 const NavBar = () => {
     return (
-        <Navbar bg="primary" variant="dark" expand="md">
+        <NavBarContainer variant="dark" expand="md">
             <Container>
                 <LinkContainer to="/">
-                    <Navbar.Brand>Vending Machine</Navbar.Brand>
+                    <Navbar.Brand className="font-weight-bold">Vending Machine</Navbar.Brand>
                 </LinkContainer>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -21,7 +26,7 @@ const NavBar = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </NavBarContainer>
     )
 }
 
