@@ -1,8 +1,9 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { Container, Badge, Image } from 'react-bootstrap';
+import { Container, Badge, Image, Button } from 'react-bootstrap';
 import DataTable from 'react-data-table-component';
+import { updatePreparationTime, deleteOrders } from '../../redux/actions/OrderActions';
 
 const DataTableContainer = styled.div`
     padding: 1rem;
@@ -14,6 +15,19 @@ const DataTableContainer = styled.div`
 const OrderList = () => {
 
     const { products } = useSelector(state => state.order);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+
+        let interval = setInterval(() => {
+            dispatch(updatePreparationTime());
+        }, 1000)
+        
+        return () => {
+            clearInterval(interval);
+        };
+
+    }, [dispatch, products]);
 
     const RowImage = ({ row }) => (
 		<div className="p-2">
@@ -58,13 +72,38 @@ const OrderList = () => {
 		},
 		{
 			name: 'Status',
+            selector: 'status',
 			cell: (row) => <RowStatus row={row} />,
+            sortable: true,
+		},
+        {
+			name: 'Created At',
+			selector: 'createdAt',
+            sortable: true,
 		},
 	];
 
+    const handleDeleteOrders = () => {
+        dispatch(deleteOrders());
+    }
+
     return (
         <Container className="my-4">
-            <h2 className="my-5">Order list</h2>
+            
+            <div className="d-flex justify-content-between">
+                <h2 className="my-5">Order list</h2>
+                
+                { products.length > 0 && 
+                    <Button
+                        variant="danger"
+                        size="sm"
+                        className="align-self-center"
+                        onClick={handleDeleteOrders}>
+                        <small>DELETE ORDERS</small>
+                    </Button>
+                }
+
+            </div>
 
             <DataTableContainer>
                 <DataTable
