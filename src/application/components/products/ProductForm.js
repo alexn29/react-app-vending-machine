@@ -5,8 +5,26 @@ import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { Button } from 'react-bootstrap';
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai';
+import { BsArrowRight } from 'react-icons/bs';
+
+import styled from 'styled-components';
 
 import { createOrder } from '../../redux/actions/OrderActions';
+
+const RadiusButton = styled(Button)`
+    border-radius: 1.5rem;
+    position: relative;
+    background-color: var(--indigo);
+    &:hover {
+        background-color: var(--light-indigo);
+    }
+    .BsArrowRight {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+`;
 
 const ProductForm = ({ product }) => {
 
@@ -43,7 +61,7 @@ const ProductForm = ({ product }) => {
                     name="quantity"
                     value={quantity}
                     onChange={ e => setQuantity(Number(e.target.value)) }
-                    className="form-control mx-1" />
+                    className="form-control text-center mx-1" />
                 <Button
                     variant="light"
                     className="rounded-circle"
@@ -52,9 +70,10 @@ const ProductForm = ({ product }) => {
                 </Button>
             </div>
             <div>
-                <Button type="submit" variant="primary" className="btn-sm btn-block">
+                <RadiusButton type="submit" className="btn-block">
                     <small>ORDER</small>
-                </Button>
+                    <BsArrowRight className="BsArrowRight" />
+                </RadiusButton>
             </div>
         </form>
     )
