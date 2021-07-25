@@ -15,6 +15,10 @@ const SpinnerContainer = styled.div`
     gap: .75rem;
 `;
 
+const CustomSpinner = styled(Spinner)`
+    color: var(--indigo)
+`;
+
 const Products = () => {
     
     useEffect(() => {
@@ -48,7 +52,7 @@ const Products = () => {
 
             { isLoading && 
                 <SpinnerContainer>
-                    <Spinner animation="border" variant="primary" />
+                    <CustomSpinner animation="border" />
                     <small>Fetching data, please wait!</small>
                 </SpinnerContainer>
             }
