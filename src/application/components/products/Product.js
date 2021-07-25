@@ -7,7 +7,7 @@ import ProductForm from './ProductForm';
 const Product = ({ product }) => {
 
     return (
-        <Col xs={6} md={4} lg={3} className="mb-4">
+        <Col xs={12} sm={6} md={4} lg={3} className="mb-4">
             <CardWithShadow>
                 <CardImageContainer>
                     <CardImage image={product.thumbnail} />
