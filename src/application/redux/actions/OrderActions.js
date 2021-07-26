@@ -2,10 +2,11 @@ import * as types from '../types';
 import uuid from 'react-uuid';
 
 export const createOrder = (product) => async (dispatch, getState) => {
-    
+    let orderId = uuid();
     let data = {
         ...product,
-        orderId: uuid(),
+        id: orderId,
+        orderId,
         status: 'Pending',
         createdAt: new Date().toLocaleString(),
     }
