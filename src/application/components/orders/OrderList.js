@@ -118,6 +118,7 @@ const OrderList = () => {
                     pagination={true}
                     paginationPerPage={5}
                     paginationRowsPerPageOptions={[5,10,20]}
+                    defaultSortField="createdAt"
                 />
             </DataTableContainer>
 
